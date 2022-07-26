@@ -1,0 +1,54 @@
+{
+  "name": "tronlib",
+  "version": "0.0.1",
+  "description": "Tron JavaScript library",
+  "author": "Coin Crypto Wallet <support@coin.space> (https://coin.space/)",
+  "license": "MIT",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "mocha",
+    "protocol": "pbjs --es6 --wrap=es6 --target=static --out=lib/protocol.js protocol/core/Tron.proto protocol/core/Discover.proto protocol/core/contract/balance_contract.proto protocol/core/contract/common.proto && echo \"/* eslint-disable */\nimport \\$protobuf from 'protobufjs/minimal.js';\n$(cat lib/protocol.js)\" > lib/protocol.js",
+    "lint": "eslint lib/*.js test/*.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/CoinSpace/tronlib.git"
+  },
+  "dependencies": {
+    "bs58": "^5.0.0",
+    "elliptic": "^6.5.4",
+    "protobufjs": "^7.0.0",
+    "sha3": "^2.1.4"
+  },
+  "devDependencies": {
+    "eslint": "^8.20.0",
+    "eslint-config-coinspace": "^1.2.2",
+    "mocha": "^10.0.0",
+    "protobufjs-cli": "^1.0.0"
+  },
+  "eslintConfig": {
+    "extends": [
+      "coinspace"
+    ],
+    "env": {
+      "node": true
+    },
+    "parserOptions": {
+      "ecmaVersion": 2022,
+      "requireConfigFile": false,
+      "sourceType": "module"
+    },
+    "overrides": [
+      {
+        "files": [
+          "*.test.js",
+          "test/*"
+        ],
+        "env": {
+          "mocha": true
+        }
+      }
+    ]
+  }
+}
