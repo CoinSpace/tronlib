@@ -1,2 +1,6 @@
+test/
+protocol/
+.github/
 .editorconfig
-test
+.nvmrc
+.gitmodules
