@@ -4,3 +4,4 @@ protocol/
 .editorconfig
 .nvmrc
 .gitmodules
+protocol.proto

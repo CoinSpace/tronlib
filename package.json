@@ -14,7 +14,7 @@
   ],
   "scripts": {
     "test": "mocha",
-    "protocol": "pbjs --es6 --wrap=es6 --target=static --out=lib/protocol.js protocol/core/Tron.proto protocol/core/Discover.proto protocol/core/contract/balance_contract.proto protocol/core/contract/smart_contract.proto protocol/core/contract/common.proto && echo \"/* eslint-disable */\nimport \\$protobuf from 'protobufjs/minimal.js';\n$(cat lib/protocol.js)\" > lib/protocol.js",
+    "protocol": "pbjs --es6 --wrap=es6 --target=static --out=lib/protocol.js --path ./protocol/ --sparse protocol.proto  && echo \"/* eslint-disable */\nimport \\$protobuf from 'protobufjs/minimal.js';\n$(cat lib/protocol.js)\" > lib/protocol.js",
     "lint": "eslint index.js lib/*.js test/*.js"
   },
   "repository": {

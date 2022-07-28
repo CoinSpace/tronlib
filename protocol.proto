@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+import "google/protobuf/any.proto";
+import "core/Tron.proto";
+import "core/contract/balance_contract.proto";
+import "core/contract/smart_contract.proto";
+
+package protocol;
+
+message Protocol {
+  google.protobuf.Any any = 1;
+
+  Transaction transaction = 10;
+  Transaction.raw raw = 11;
+  Transaction.Contract contract = 12;
+  Transaction.Contract.ContractType contract_type = 13;
+
+  TransferContract transfer_contract = 100;
+  TriggerSmartContract trigger_smart_contract = 101;
+}
