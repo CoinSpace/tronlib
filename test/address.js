@@ -52,4 +52,18 @@ describe('Address', () => {
       assert.strictEqual(address.toHex(false), BYTES);
     });
   });
+
+  describe('toString', () => {
+    it('should return base 58 check address', () => {
+      const address = new Address(Buffer.from(BYTES, 'hex'));
+      assert.strictEqual(address.toString(), BASE58CHECK);
+    });
+  });
+
+  describe('toJSON', () => {
+    it('should return base 58 check address', () => {
+      const address = new Address(Buffer.from(BYTES, 'hex'));
+      assert.strictEqual(address.toJSON(), BASE58CHECK);
+    });
+  });
 });
