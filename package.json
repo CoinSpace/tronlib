@@ -29,7 +29,7 @@
   },
   "devDependencies": {
     "eslint": "^8.20.0",
-    "eslint-config-coinspace": "^1.2.2",
+    "eslint-config-coinspace": "^2.0.0",
     "mocha": "^10.0.0",
     "protobufjs-cli": "^1.0.0"
   },
@@ -41,7 +41,6 @@
       "node": true
     },
     "parserOptions": {
-      "ecmaVersion": 2022,
       "requireConfigFile": false,
       "sourceType": "module"
     },

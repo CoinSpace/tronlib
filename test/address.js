@@ -1,5 +1,5 @@
-import assert from 'assert';
 import { Address } from '../index.js';
+import assert from 'assert';
 
 // eslint-disable-next-line max-len
 const PUBLIC_KEY = '040947751e3022ecf3016be03ec77ab0ce3c2662b4843898cb068d74f698ccc8ad75aa17564ae80a20bb044ee7a6d903e8e8df624b089c95d66a0570f051e5a05b';
