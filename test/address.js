@@ -1,5 +1,5 @@
 import { Address } from '../index.js';
-import assert from 'assert';
+import assert from 'assert/strict';
 
 // eslint-disable-next-line max-len
 const PUBLIC_KEY = '040947751e3022ecf3016be03ec77ab0ce3c2662b4843898cb068d74f698ccc8ad75aa17564ae80a20bb044ee7a6d903e8e8df624b089c95d66a0570f051e5a05b';
@@ -26,7 +26,7 @@ describe('Address', () => {
   describe('fromPublicKey', () => {
     it('should create address', () => {
       const address = Address.fromPublicKey(Buffer.from(PUBLIC_KEY, 'hex'));
-      assert.strictEqual(address.toHex(), ADDRESS);
+      assert.equal(address.toHex(), ADDRESS);
     });
 
     it('should throw invalid public key length', () => {
@@ -42,28 +42,46 @@ describe('Address', () => {
   describe('toBase58Check', () => {
     it('should return base 58 check address', () => {
       const address = new Address(Buffer.from(BYTES, 'hex'));
-      assert.strictEqual(address.toBase58Check(), BASE58CHECK);
+      assert.equal(address.toBase58Check(), BASE58CHECK);
     });
   });
 
   describe('fromBase58Check', () => {
     it('should create address', () => {
       const address = Address.fromBase58Check(BASE58CHECK);
-      assert.strictEqual(address.toHex(false), BYTES);
+      assert.equal(address.toHex(false), BYTES);
+    });
+
+    it('shpould fail (1)', () => {
+      assert.throws(() => {
+        Address.fromBase58Check('TNPeeaaFB7K9cmo4uQpcU32zGK8G1NYqe');
+      }, {
+        name: 'Error',
+        message: 'Invalid checksum',
+      });
+    });
+
+    it('shpould fail (1)', () => {
+      assert.throws(() => {
+        Address.fromBase58Check('TNPeeaaFB7K9cmo4uQpcU32zGK8G1NYqeM');
+      }, {
+        name: 'Error',
+        message: 'Invalid checksum',
+      });
     });
   });
 
   describe('toString', () => {
     it('should return base 58 check address', () => {
       const address = new Address(Buffer.from(BYTES, 'hex'));
-      assert.strictEqual(address.toString(), BASE58CHECK);
+      assert.equal(address.toString(), BASE58CHECK);
     });
   });
 
   describe('toJSON', () => {
     it('should return base 58 check address', () => {
       const address = new Address(Buffer.from(BYTES, 'hex'));
-      assert.strictEqual(address.toJSON(), BASE58CHECK);
+      assert.equal(address.toJSON(), BASE58CHECK);
     });
   });
 });
