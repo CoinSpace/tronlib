@@ -1,8 +1,8 @@
 {
   "name": "tronlib",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Tron JavaScript library",
-  "author": "Coin Crypto Wallet <support@coin.space> (https://coin.space/)",
+  "author": "Coin Wallet <support@coin.space> (https://coin.space/)",
   "license": "MIT",
   "main": "index.js",
   "type": "module",
